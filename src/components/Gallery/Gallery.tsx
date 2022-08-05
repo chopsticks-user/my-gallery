@@ -66,20 +66,20 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
         <div className="gallery-card-container" style={{ border: `1px solid ${borderColor}` }}>
             <div className="card-thumbnail" style={{ backgroundColor: cardBgColor }}></div>
             <div className="card-info">
-                <Link className="card-primary-link" to={primaryLink}
+                <a className="card-primary-link" href={primaryLink}
                     onClick={(e) => {
                         e.preventDefault();
                         window.open(primaryLink, "_blank");
                     }}
                 >{cardName}
-                </Link>
-                <Link className="card-source-link" to={sourceLink}
+                </a>
+                <a className="card-source-link" href={sourceLink}
                     onClick={(e) => {
                         e.preventDefault();
                         window.open(primaryLink, "_blank");
                     }}
                 >{"</>"}
-                </Link>
+                </a>
                 <button className="card-edit-button">
                     {"Edit"}
                 </button>

@@ -4,6 +4,7 @@ import HomepageShorcut from '../../buttons/HomePageShorcut';
 import Login from '../../buttons/Login';
 import NavigationMenu from '../../buttons/NavigationMenu';
 import SettingsMenu from '../../buttons/SettingsMenu';
+import ToolBar from '../../buttons/ToolBar';
 import './Header.css';
 
 type HeaderProps = {
@@ -16,6 +17,8 @@ const Header: React.FC<HeaderProps> = ({
   theme, darkTheme, toggleTheme
 }) => {
   const textColor = "#fff";
+  const settingsMenuIcon = "⚙";
+  const toolBarMenuIcon = "🔧";
   return (
     <div className="header-container">
       <div className="header-section-container" id="hsc-left">
@@ -27,43 +30,14 @@ const Header: React.FC<HeaderProps> = ({
           textColor={textColor}
           darkTheme={darkTheme}
           toggleTheme={toggleTheme}
-          settingsMenuIcon={"⚙"}
+          settingsMenuIcon={settingsMenuIcon}
         />
         <span></span>
-        <div className="setting-container header-right-element">
-          <button className="header-dropdown-menu-button hrdmb-settings"
-            style={{
-              color: textColor
-            }}>
-            <span>{"🔧"}</span>
-          </button>
-          <ul className="header-dropdown-item-container hdic-settings" id="hdic-toolbar">
-            <li className="header-dropdown-item setting-item">
-              <button className="change-theme-button" style={{ color: "white", fontSize: "30px" }}>
-                {"+"}
-              </button>
-            </li>
-            <li className="header-dropdown-item setting-item">
-              <button className="change-language-button"
-                style={{
-                  color: textColor,
-                }}>
-                {"❌"}
-              </button>
-            </li>
-          </ul>
-        </div>
-        <span></span>
-        {/* <AboutMe
-          textColor={textColor}
-          aboutMeIcon={"About"}
-        /> */}
-        <span></span>
-        {/* <Login
-          textColor={textColor}
-          loginIcon={"Login"}
+        <ToolBar
+        textColor={textColor}
+        toolBarMenuIcon={toolBarMenuIcon}
         />
-        <span></span> */}
+        <span></span>
       </div>
     </div>
   );

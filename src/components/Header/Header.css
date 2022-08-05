@@ -1,6 +1,10 @@
 .header-container {
     min-height: 40px;
+    width: 100%;
     display: flex;
+    position: fixed;
+    align-items: center;
+    background-color: var(--header-background-color);
 }
 
 .header-container li {
@@ -26,7 +30,7 @@
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: var(--background-color);
+    background-color: var(--header-background-color);
 }
 
 .header-dropdown-item-container {
@@ -108,7 +112,7 @@
 
 .header-right-element>button {
     border: none;
-    background-color: var(--background-color);
+    background-color: var(--header-background-color);
     cursor: pointer;
     margin: 5px;
 }
@@ -153,10 +157,6 @@
     align-items: center;
     transform: rotate(-90deg);
     transition: transform 200ms ease-in-out;
-}
-
-#hrdmb-settings>span:hover {
-    transform: rotate(0deg);
 }
 
 .setting-item {

@@ -1,15 +1,14 @@
 import { ReactElement, useRef } from "react";
 
 type SettingsMenuProps = {
-    sectionThemes: any;
+    textColor: string;
     darkTheme: boolean;
     toggleTheme: any;
-    iconColor: string;
     settingsMenuIcon: string;
 }
 
 const SettingsMenu: React.FC<SettingsMenuProps> = ({
-    sectionThemes, darkTheme, toggleTheme, iconColor, settingsMenuIcon
+    textColor, darkTheme, toggleTheme, settingsMenuIcon
 }) => {
     const themeIcons = { dark: "🌙", light: "⛅" }
     const themeIconRef = useRef<string>(darkTheme ? themeIcons.dark : themeIcons.light);
@@ -23,7 +22,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({
         <div className="setting-container header-right-element">
             <button className="header-dropdown-menu-button" id="hrdmb-settings"
                 style={{
-                    color: iconColor
+                    color: textColor
                 }}>
                 <span>{settingsMenuIcon}</span>
             </button>
@@ -40,7 +39,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({
                 <li className="header-dropdown-item setting-item">
                     <button className="change-language-button"
                         style={{
-                            color: sectionThemes.textColor,
+                            color: textColor,
                         }}>
                         {"EN"}
                     </button>
@@ -48,7 +47,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({
                 <li className="header-dropdown-item setting-item">
                     <button className="change-font-size-button"
                         style={{
-                            color: sectionThemes.textColor,
+                            color: textColor,
                         }}>
                         {"🖋"}
                     </button>

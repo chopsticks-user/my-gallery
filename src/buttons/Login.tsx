@@ -1,17 +1,17 @@
 
 type LoginProps = {
-    iconColor: string,
+    textColor: string,
     loginIcon: string
 }
 
 const Login: React.FC<LoginProps> = ({
-    iconColor, loginIcon
+    textColor, loginIcon
 }) => {
     return (
         <div className="login-container header-right-element">
             <button className="header-dropdown-menu-button" id="hrdmb-login"
                 style={{
-                    color: iconColor
+                    color: textColor
                 }}>
                 {loginIcon}
             </button>

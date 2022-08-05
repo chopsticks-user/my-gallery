@@ -1,18 +1,18 @@
 
 type AboutMeProps = {
-    iconColor: any;
+    textColor: any;
     aboutMeIcon: string;
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({
-    iconColor, aboutMeIcon
+    textColor, aboutMeIcon
 }) => {
     return (
         <div className="about-container header-right-element">
-            <button id="hrdmb-about" style={{ color: iconColor }}>
+            <button id="hrdmb-about" style={{ color: textColor }}>
                 <a href="/about-me"
                     style={{
-                        color: iconColor, textDecoration: "none"
+                        color: textColor, textDecoration: "none"
                     }}>
                     {aboutMeIcon}
                 </a>

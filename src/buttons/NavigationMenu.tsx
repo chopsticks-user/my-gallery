@@ -1,24 +1,22 @@
 import React from 'react';
 
 type NavigationMenuProps = {
-  sectionThemes: any;
+  textColor: any;
 }
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({
-  sectionThemes
-}) => {
+const NavigationMenu: React.FC<NavigationMenuProps> = ({ textColor }) => {
 
   return (
     <div className="header-dropdown-menu-container">
       <button className="header-dropdown-menu-button"
-        style={{ color: sectionThemes.textColor }}>M</button>
+        style={{ color: textColor }}>M</button>
       <ul className="header-dropdown-item-container" id="hdic-left"
-        style={{ color: sectionThemes.textColor }}
+        style={{ color: textColor }}
       >
-        {/* <li className="header-dropdown-item" id="hdi-1">
+        <li className="header-dropdown-item" id="hdi-1">
           <a href="/"
             style={{
-              color: sectionThemes.textColor,
+              color: textColor,
               textDecoration: "none"
             }}>
             Item 1
@@ -27,7 +25,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
         <li className="header-dropdown-item" id="hdi-2">
           <a href="/"
             style={{
-              color: sectionThemes.textColor,
+              color: textColor,
               textDecoration: "none"
             }}>
             Item 2
@@ -36,7 +34,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
         <li className="header-dropdown-item" id="hdi-3">
           <a href="/"
             style={{
-              color: sectionThemes.textColor,
+              color: textColor,
               textDecoration: "none"
             }}>
             Item 3
@@ -45,12 +43,12 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({
         <li className="header-dropdown-item" id="hdi-4">
           <a href="/"
             style={{
-              color: sectionThemes.textColor,
+              color: textColor,
               textDecoration: "none"
             }}>
             Item 4
           </a>
-        </li> */}
+        </li>
       </ul>
     </div>
   );

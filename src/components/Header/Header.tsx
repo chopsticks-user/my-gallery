@@ -7,40 +7,39 @@ import SettingsMenu from '../../buttons/SettingsMenu';
 import './Header.css';
 
 type HeaderProps = {
-  sectionThemes: any;
-  generalTheme: any;
+  theme: any;
   darkTheme: boolean;
   toggleTheme: any;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  sectionThemes, generalTheme, darkTheme, toggleTheme
+  theme, darkTheme, toggleTheme
 }) => {
+  const textColor = "#fff";
   return (
     <div className="header-container">
       <div className="header-section-container" id="hsc-left">
-        <NavigationMenu sectionThemes={sectionThemes} />
+        <NavigationMenu textColor={textColor} />
       </div>
-      <HomepageShorcut iconColor={sectionThemes.textColor} homepageIcon={"N3K😾"} />
+      <HomepageShorcut textColor={textColor} homepageIcon={"GALLERY"} />
       <div className="header-section-container" id="hsc-right">
         <SettingsMenu
-          sectionThemes={sectionThemes}
+          textColor={textColor}
           darkTheme={darkTheme}
           toggleTheme={toggleTheme}
-          iconColor={sectionThemes.textColor}
           settingsMenuIcon={"⚙"}
         />
         <span></span>
         <AboutMe
-          iconColor={sectionThemes.textColor}
+          textColor={textColor}
           aboutMeIcon={"About"}
         />
         <span></span>
-        <Login
-          iconColor={sectionThemes.textColor}
+        {/* <Login
+          textColor={textColor}
           loginIcon={"Login"}
         />
-        <span></span>
+        <span></span> */}
       </div>
     </div>
   );

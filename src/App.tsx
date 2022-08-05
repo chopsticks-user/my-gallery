@@ -32,7 +32,7 @@ const App = () => {
 
   return (
     <>
-      <div className="page-container" style={{backgroundColor: theme.backgroundColor}}>
+      <div className="page-container" style={{ backgroundColor: theme.backgroundColor }}>
         <Header
           theme={theme}
           darkTheme={darkTheme}
@@ -43,6 +43,8 @@ const App = () => {
         />
       </div>
       <LoadingPage />
+      {<div className="create-new-card-window"></div>}
+      {<div className="edit-card-window"></div>}
     </>
   );
 }

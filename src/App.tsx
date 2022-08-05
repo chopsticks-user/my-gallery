@@ -7,13 +7,14 @@ const themes = {
   dark: {
     backgroundColor: "#1a1c1e",
     textColor: "#fff",
-    borderColor: "#fff",
-    galleryCardBgColor: ""
+    borderColor: "#1a2f2e",
+    galleryCardBgColor: "#000"
   },
   light: {
     backgroundColor: "#fff",
     textColor: "rgb(37, 37, 37)",
-    borderColor: "#000"
+    borderColor: "#000",
+    galleryCardBgColor: "gray"
   }
 };
 

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import AboutMe from '../../buttons/AboutMe';
+import AboutMe from '../../buttons/About';
 import HomepageShorcut from '../../buttons/HomePageShorcut';
 import Login from '../../buttons/Login';
 import NavigationMenu from '../../buttons/NavigationMenu';

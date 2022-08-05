@@ -49,7 +49,7 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({
                         style={{
                             color: textColor,
                         }}>
-                        {"🖋"}
+                        {/* {"🖋"} */}
                     </button>
                 </li>
             </ul>

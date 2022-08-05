@@ -19,7 +19,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ textColor }) => {
               color: textColor,
               textDecoration: "none"
             }}>
-            Item 1
+            {"Login"}
           </a>
         </li>
         <li className="header-dropdown-item" id="hdi-2">
@@ -28,7 +28,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ textColor }) => {
               color: textColor,
               textDecoration: "none"
             }}>
-            Item 2
+            {"Background Animation"}
           </a>
         </li>
         <li className="header-dropdown-item" id="hdi-3">
@@ -37,7 +37,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ textColor }) => {
               color: textColor,
               textDecoration: "none"
             }}>
-            Item 3
+            {"Contact"}
           </a>
         </li>
         <li className="header-dropdown-item" id="hdi-4">
@@ -46,7 +46,7 @@ const NavigationMenu: React.FC<NavigationMenuProps> = ({ textColor }) => {
               color: textColor,
               textDecoration: "none"
             }}>
-            Item 4
+            {"About"}
           </a>
         </li>
       </ul>

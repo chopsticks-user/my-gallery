@@ -11,28 +11,47 @@
     grid-auto-rows: 220px;
 }
 
-.gallery-container>div {
-    background-color: gray;
+.gallery-card-container {
     height: 220px;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
 }
 
-.gallery-container>div>span {
+.card-thumbnail {
+    flex: auto;
+}
+
+.card-info {
+    display: flex;
     bottom: 0;
     opacity: 1;
     background-color: red;
-    height: 30px;
+    height: 20px;
+}
+
+.card-edit-button {
+    background-color: green;
+    width: 40px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media screen and (min-width: 500px) {
     .gallery-container {
         padding: var(--gallery-container-padding);
         grid-template-columns: repeat(auto-fit, minmax(calc(500px - 2 * var(--gallery-container-padding)), 1fr));
+        gap: 0rem;
+    }
+
+    .card-edit-button {
+        display: none;
     }
     
-    .gallery-container>div>span {
+    .card-info {
+        font-size: 0;
+        display: flex;
         position: absolute;
         bottom: 0;
         opacity: 0;
@@ -41,16 +60,47 @@
         transition: opacity 800ms ease-in-out, transform 500ms ease-in-out;
     }
 
-    .gallery-container>div:hover {
+    .gallery-card-container:hover {
         transform: scaleY(1.2) scaleX(1.1);
     }
 
-    .gallery-container>div:hover>span {
+    .gallery-card-container:hover>.card-info {
+        font-size: 1rem;
         opacity: 1;
         width: 100%;
-        height: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: row;
         background-color: red;
         transform: translateY(0px);
         pointer-events: auto;
     }
+
+    .gallery-card-container:hover .card-edit-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 100%;
+    }
+}
+
+.card-primary-link {
+    text-decoration: none;
+    flex: auto;
+    display: flex;
+    text-transform: uppercase;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
+    overflow: hidden;
+}
+
+.card-source-link {
+    text-decoration: none;
+    background-color: yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 3px;
 }

@@ -8,20 +8,29 @@ const themes = {
     backgroundColor: "#1a1c1e",
     textColor: "#fff",
     borderColor: "#1a2f2e",
-    galleryCardBgColor: "#000"
+    galleryCardBgColor: "#000",
+    galleryCardInfoBgColor: "2e2e2e"
   },
   light: {
     backgroundColor: "#fff",
     textColor: "rgb(37, 37, 37)",
     borderColor: "#000",
-    galleryCardBgColor: "gray"
+    galleryCardBgColor: "gray",
+    galleryCardInfoBgColor: "gray"
   }
 };
+
+type GalleryCardInformation = {
+  displayedName: string;
+  displayedThumbnail: any;
+  primaryLink: string;
+  sourceLink: string;
+}
 
 type userBasicInfo = {
   isAdministrator: boolean;
   displayedName: string;
-  gallery: any;
+  gallery: GalleryCardInformation[];
 }
 
 type userSettingInfo = {
@@ -38,7 +47,12 @@ const defaultUserInfo: User = {
   basicInfo: {
     isAdministrator: false,
     displayedName: "",
-    gallery: []
+    gallery: [{
+      displayedName: "",
+      displayedThumbnail: "",
+      primaryLink: "",
+      sourceLink: ""
+    }]
   },
   settingInfo: {
     darkTheme: true,
@@ -50,7 +64,12 @@ const userInfo = {
   basicInfo: {
     isAdministrator: true,
     displayedName: "Frost",
-    gallery: []
+    gallery: [{
+      displayedName: "",
+      displayedThumbnail: "",
+      primaryLink: "",
+      sourceLink: ""
+    }]
   },
   settingInfo: {
     darkTheme: true,
@@ -59,7 +78,7 @@ const userInfo = {
 }
 
 const App = () => {
-  const [guest, setGuest] = useState<boolean>(true);
+  const [guest, setGuest] = useState<boolean>(false);
 
   const [displayedName, setDisplayedName] = useState<string>(
     guest ? defaultUserInfo.basicInfo.displayedName : userInfo.basicInfo.displayedName
@@ -71,7 +90,7 @@ const App = () => {
     guest ? defaultUserInfo.settingInfo.darkTheme : userInfo.settingInfo.darkTheme
   );
   const [theme, setTheme] = useState<any>(darkTheme ? themes.dark : themes.light);
-  const [displayedGallery, setDisplayedGallery] = useState<any>(
+  const [displayedGallery, setDisplayedGallery] = useState<GalleryCardInformation[]>(
     guest ? defaultUserInfo.basicInfo.gallery : userInfo.basicInfo.gallery
   );
 
@@ -93,15 +112,15 @@ const App = () => {
     userInfo.basicInfo.gallery = displayedGallery;
   }, [displayedGallery]);
 
-  const toggleTheme = () => {
+  const toggleTheme = (): void => {
     setDarkTheme(darkTheme => !darkTheme);
   }
 
-  const editGallery = (newDisplayedGallery: any) => {
+  const editGallery = (newDisplayedGallery: any): void => {
     setDisplayedGallery(newDisplayedGallery);
   }
 
-  const editCard = (modifiedCard: any) => {
+  const editCard = (modifiedCard: any): void => {
 
   }
 

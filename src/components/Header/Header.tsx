@@ -30,6 +30,30 @@ const Header: React.FC<HeaderProps> = ({
           settingsMenuIcon={"⚙"}
         />
         <span></span>
+        <div className="setting-container header-right-element">
+          <button className="header-dropdown-menu-button hrdmb-settings"
+            style={{
+              color: textColor
+            }}>
+            <span>{"🔧"}</span>
+          </button>
+          <ul className="header-dropdown-item-container hdic-settings" id="hdic-toolbar">
+            <li className="header-dropdown-item setting-item">
+              <button className="change-theme-button" style={{ color: "white", fontSize: "30px" }}>
+                {"+"}
+              </button>
+            </li>
+            <li className="header-dropdown-item setting-item">
+              <button className="change-language-button"
+                style={{
+                  color: textColor,
+                }}>
+                {"❌"}
+              </button>
+            </li>
+          </ul>
+        </div>
+        <span></span>
         <AboutMe
           textColor={textColor}
           aboutMeIcon={"About"}

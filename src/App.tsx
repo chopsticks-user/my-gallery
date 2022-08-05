@@ -41,7 +41,6 @@ const App = () => {
           theme={theme}
         />
       </div>
-      <div className="tool-bar"></div>
       <LoadingPage />
     </>
   );

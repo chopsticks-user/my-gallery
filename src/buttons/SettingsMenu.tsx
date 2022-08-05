@@ -20,13 +20,13 @@ const SettingsMenu: React.FC<SettingsMenuProps> = ({
 
     return (
         <div className="setting-container header-right-element">
-            <button className="header-dropdown-menu-button" id="hrdmb-settings"
+            <button className="header-dropdown-menu-button hrdmb-settings"
                 style={{
                     color: textColor
                 }}>
                 <span>{settingsMenuIcon}</span>
             </button>
-            <ul className="header-dropdown-item-container" id="hdic-settings">
+            <ul className="header-dropdown-item-container hdic-settings">
                 <li className="header-dropdown-item setting-item">
                     <button className="change-theme-button"
                         onClick={() => {

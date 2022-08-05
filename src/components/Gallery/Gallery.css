@@ -1,5 +1,4 @@
 .gallery-container {
-    position: relative;
     margin-top: var(--header-height);
     height: calc(100% - var(--header-height));
     width: 100%;

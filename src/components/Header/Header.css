@@ -137,7 +137,11 @@
     font-size: 20px;
 }
 
-#hdic-settings {
+#hdic-toolbar {
+    height: calc(var(--header-height) * 2);
+}
+
+.hdic-settings {
     height: calc(var(--header-height) * 3);
     width: var(--header-height);
     top: calc(100%);
@@ -145,18 +149,16 @@
     font-size: 20px;
 }
 
-#hrdmb-settings {
+.hrdmb-settings {
     font-size: 20px;
 }
 
-#hrdmb-settings>span {
+.hrdmb-settings>span {
     width: 20px;
     height: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: rotate(-90deg);
-    transition: transform 200ms ease-in-out;
 }
 
 .setting-item {

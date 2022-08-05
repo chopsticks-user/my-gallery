@@ -71,14 +71,3 @@ code {
   overflow-x: hidden; */
   min-width: var(--window-min-width);
 }
-
-.tool-bar {
-  position: absolute;
-  left: var(--gallery-container-padding);
-  border-radius: 5px;
-  top: calc(var(--header-height) + 10px);
-  width: 200px;
-  height: 30px;
-  background-color: blue;
-  cursor: pointer;
-}

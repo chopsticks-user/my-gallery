@@ -19,6 +19,7 @@ const themes = {
 };
 
 type userBasicInfo = {
+  isAdministrator: boolean;
   displayedName: string;
   gallery: any;
 }
@@ -35,8 +36,9 @@ type User = {
 
 const defaultUserInfo: User = {
   basicInfo: {
+    isAdministrator: false,
     displayedName: "",
-    gallery: null,
+    gallery: []
   },
   settingInfo: {
     darkTheme: true,
@@ -46,8 +48,9 @@ const defaultUserInfo: User = {
 
 const userInfo = {
   basicInfo: {
+    isAdministrator: true,
     displayedName: "Frost",
-    gallery: null,
+    gallery: []
   },
   settingInfo: {
     darkTheme: true,
@@ -74,10 +77,32 @@ const App = () => {
 
   useEffect(() => {
     setTheme(darkTheme ? themes.dark : themes.light);
+    if (!guest) {
+      userInfo.settingInfo.darkTheme = darkTheme;
+    }
+    if (userInfo.basicInfo.isAdministrator) {
+      defaultUserInfo.settingInfo.darkTheme = darkTheme;
+    }
+    console.log(userInfo);
   }, [darkTheme]);
+
+  useEffect(() => {
+    if (userInfo.basicInfo.isAdministrator) {
+      defaultUserInfo.basicInfo.gallery = displayedGallery;
+    }
+    userInfo.basicInfo.gallery = displayedGallery;
+  }, [displayedGallery]);
 
   const toggleTheme = () => {
     setDarkTheme(darkTheme => !darkTheme);
+  }
+
+  const editGallery = (newDisplayedGallery: any) => {
+    setDisplayedGallery(newDisplayedGallery);
+  }
+
+  const editCard = (modifiedCard: any) => {
+
   }
 
   return (
@@ -93,6 +118,7 @@ const App = () => {
         />
         <Gallery
           theme={theme}
+          guest={guest}
         />
       </div>
       <LoadingPage />

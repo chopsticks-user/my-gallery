@@ -4,18 +4,21 @@ import "./Gallery.css"
 
 type GalleryProps = {
     theme: any;
+    guest: boolean;
 }
 
 const defaultGallery: any[] = [];
 
-const Gallery: React.FC<GalleryProps> = ({ theme }) => {
-    const [projectCount, setProjectCount] = useState<number>(25);
-    const [projectList, setProjectList] = useState<any[]>([]);
+const Gallery: React.FC<GalleryProps> = ({
+    theme, guest
+}) => {
+    const [cardCount, setCardCount] = useState<number>(25);
+    const [cardList, setCardList] = useState<any[]>([]);
 
-    const showProjects = () => {
-        const newProjectList: any[] = [];
-        for (let i: number = 0; i < projectCount; i++) {
-            newProjectList.push(
+    const showCards = () => {
+        const newcardList: any[] = [];
+        for (let i: number = 0; i < cardCount; i++) {
+            newcardList.push(
                 // <div className="gallery-card-container" key={i} style={{ border: `1px solid ${theme.borderColor}` }}>
                 //     <div className="gallery-card" style={{ backgroundColor: theme.galleryCardBgColor }}></div>
                 //     <div className="gallery-info">
@@ -28,6 +31,7 @@ const Gallery: React.FC<GalleryProps> = ({ theme }) => {
                 // </div>
                 <GalleryCard
                     key={i}
+                    guest={guest}
                     cardBgColor={theme.galleryCardBgColor}
                     borderColor={theme.borderColor}
                     cardName={`oooooooooooooooooooooooooooooo`} // maximum 30 characters
@@ -36,22 +40,23 @@ const Gallery: React.FC<GalleryProps> = ({ theme }) => {
                 />
             );
         }
-        setProjectList(newProjectList);
+        setCardList(newcardList);
     }
 
     useEffect(() => {
-        showProjects();
-    }, [projectCount, theme]);
+        showCards();
+    }, [cardCount, theme]);
 
 
     return (
         <div className="gallery-container">
-            {projectList}
+            {cardList}
         </div>
     );
 }
 
 type GalleryCardProps = {
+    guest: boolean;
     cardBgColor: string;
     borderColor: string;
     cardName: string;
@@ -59,8 +64,8 @@ type GalleryCardProps = {
     sourceLink: string;
 }
 
-const GalleryCard: React.FC<GalleryCardProps> = ({
-    cardBgColor, borderColor, cardName, primaryLink, sourceLink
+export const GalleryCard: React.FC<GalleryCardProps> = ({
+    guest, cardBgColor, borderColor, cardName, primaryLink, sourceLink
 }) => {
     return (
         <div className="gallery-card-container" style={{ border: `1px solid ${borderColor}` }}>
@@ -80,9 +85,12 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
                     }}
                 >{"</>"}
                 </a>
-                <button className="card-edit-button">
-                    {"Edit"}
-                </button>
+                {
+                    !guest ? <button
+                        className="card-edit-button">
+                        {"Edit"}
+                    </button> : <></>
+                }
             </div>
         </div>
     );

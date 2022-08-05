@@ -1,14 +1,15 @@
-import { ReactElement, useRef } from "react";
+import { useRef } from "react";
 
 type SettingsMenuProps = {
     textColor: string;
     darkTheme: boolean;
     toggleTheme: any;
     settingsMenuIcon: string;
+    guest: boolean;
 }
 
 const SettingsMenu: React.FC<SettingsMenuProps> = ({
-    textColor, darkTheme, toggleTheme, settingsMenuIcon
+    textColor, darkTheme, toggleTheme, settingsMenuIcon, guest
 }) => {
     const themeIcons = { dark: "🌙", light: "⛅" }
     const themeIconRef = useRef<string>(darkTheme ? themeIcons.dark : themeIcons.light);

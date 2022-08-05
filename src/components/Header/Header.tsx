@@ -39,12 +39,15 @@ const Header: React.FC<HeaderProps> = ({
           darkTheme={darkTheme}
           toggleTheme={toggleTheme}
           settingsMenuIcon={settingsMenuIcon}
+          guest={guest}
         />
         <span></span>
-        {guest ? <ToolBar
-          textColor={textColor}
-          toolBarMenuIcon={toolBarMenuIcon}
-        /> : <></>}
+        {
+          !guest ? <ToolBar
+            textColor={textColor}
+            toolBarMenuIcon={toolBarMenuIcon}
+          /> : <></>
+        }
         <span></span>
       </div>
     </div>

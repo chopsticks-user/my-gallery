@@ -54,11 +54,11 @@ const Header: React.FC<HeaderProps> = ({
           </ul>
         </div>
         <span></span>
-        <AboutMe
+        {/* <AboutMe
           textColor={textColor}
           aboutMeIcon={"About"}
         />
-        <span></span>
+        <span></span> */}
         {/* <Login
           textColor={textColor}
           loginIcon={"Login"}

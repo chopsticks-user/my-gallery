@@ -18,9 +18,59 @@ const themes = {
   }
 };
 
+type userBasicInfo = {
+  displayedName: string;
+  gallery: any;
+}
+
+type userSettingInfo = {
+  darkTheme: boolean;
+  backgroundAnimation: number;
+}
+
+type User = {
+  basicInfo: userBasicInfo;
+  settingInfo: userSettingInfo;
+}
+
+const defaultUserInfo: User = {
+  basicInfo: {
+    displayedName: "",
+    gallery: null,
+  },
+  settingInfo: {
+    darkTheme: true,
+    backgroundAnimation: 0
+  }
+}
+
+const userInfo = {
+  basicInfo: {
+    displayedName: "Frost",
+    gallery: null,
+  },
+  settingInfo: {
+    darkTheme: true,
+    backgroundAnimation: 1
+  }
+}
+
 const App = () => {
-  const [theme, setTheme] = useState<any>(themes.dark);
-  const [darkTheme, setDarkTheme] = useState<boolean>(true);
+  const [guest, setGuest] = useState<boolean>(true);
+
+  const [displayedName, setDisplayedName] = useState<string>(
+    guest ? defaultUserInfo.basicInfo.displayedName : userInfo.basicInfo.displayedName
+  );
+  const [backgroundAnimation, setBackgroundAnimation] = useState<number>(
+    guest ? defaultUserInfo.settingInfo.backgroundAnimation : userInfo.settingInfo.backgroundAnimation
+  );
+  const [darkTheme, setDarkTheme] = useState<boolean>(
+    guest ? defaultUserInfo.settingInfo.darkTheme : userInfo.settingInfo.darkTheme
+  );
+  const [theme, setTheme] = useState<any>(darkTheme ? themes.dark : themes.light);
+  const [displayedGallery, setDisplayedGallery] = useState<any>(
+    guest ? defaultUserInfo.basicInfo.gallery : userInfo.basicInfo.gallery
+  );
 
   useEffect(() => {
     setTheme(darkTheme ? themes.dark : themes.light);
@@ -37,6 +87,9 @@ const App = () => {
           theme={theme}
           darkTheme={darkTheme}
           toggleTheme={toggleTheme}
+          guest={guest}
+          setGuest={setGuest}
+          setBackgroundAnimation={setBackgroundAnimation}
         />
         <Gallery
           theme={theme}

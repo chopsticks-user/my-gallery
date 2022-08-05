@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction } from 'react';
 
 type NavigationMenuProps = {
   textColor: any;
+  guest: boolean;
+  setGuest: Dispatch<SetStateAction<boolean>>;
+  setBackgroundAnimation: Dispatch<SetStateAction<number>>;
 }
 
-const NavigationMenu: React.FC<NavigationMenuProps> = ({ textColor }) => {
+const NavigationMenu: React.FC<NavigationMenuProps> = ({
+  textColor, guest, setGuest, setBackgroundAnimation
+}) => {
 
   return (
     <div className="header-dropdown-menu-container">

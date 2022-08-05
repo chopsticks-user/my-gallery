@@ -19,10 +19,17 @@
   --custom-color: #1e1e24;
   --scrollbar-track-color: gray;
   --menu-bg-color: #424446;
-  
+
   --gray: rgb(228, 217, 217);
   /* --gray: rgb(151, 144, 144); */
   /* --menu-bg-color: #e0dddd; */
+
+  /* -webkit-touch-callout: none; iOS Safari
+  -webkit-user-select: none; Safari
+  -khtml-user-select: none; Konqueror HTML
+  -moz-user-select: none; Old versions of Firefox
+  -ms-user-select: none; Internet Explorer/Edge
+  user-select: none; */
 }
 
 * button {
@@ -63,7 +70,7 @@ code {
     monospace;
 }
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 500px) {
   .page-container {
     min-width: var(--window-min-width);
   }
@@ -75,5 +82,5 @@ code {
   overflow: hidden;
   /* overflow-y: auto;
   overflow-x: hidden; */
-  
+
 }

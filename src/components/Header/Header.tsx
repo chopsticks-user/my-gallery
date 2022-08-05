@@ -57,8 +57,8 @@ const Header: React.FC<HeaderProps> = ({
         {/* <AboutMe
           textColor={textColor}
           aboutMeIcon={"About"}
-        />
-        <span></span> */}
+        /> */}
+        <span></span>
         {/* <Login
           textColor={textColor}
           loginIcon={"Login"}

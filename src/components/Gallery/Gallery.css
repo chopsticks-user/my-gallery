@@ -1,6 +1,6 @@
 .gallery-container {
     margin-top: var(--header-height);
-    padding-top: 30px;
+    padding-top: 10px;
     height: calc(100% - var(--header-height));
     width: 100%;
     overflow-x: hidden;
@@ -17,7 +17,6 @@
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    transition: transform 300ms ease-in-out;
 }
 
 .gallery-container>div>span {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./Gallery.css"
 
 type GalleryProps = {
@@ -65,18 +66,20 @@ const GalleryCard: React.FC<GalleryCardProps> = ({
         <div className="gallery-card-container" style={{ border: `1px solid ${borderColor}` }}>
             <div className="card-thumbnail" style={{ backgroundColor: cardBgColor }}></div>
             <div className="card-info">
-                <a className="card-primary-link" href={primaryLink}
+                <Link className="card-primary-link" to={primaryLink}
                     onClick={(e) => {
                         e.preventDefault();
                         window.open(primaryLink, "_blank");
                     }}
-                >{cardName}</a>
-                <a className="card-source-link" href={sourceLink}
+                >{cardName}
+                </Link>
+                <Link className="card-source-link" to={sourceLink}
                     onClick={(e) => {
                         e.preventDefault();
                         window.open(primaryLink, "_blank");
                     }}
-                >{"</>"}</a>
+                >{"</>"}
+                </Link>
                 <button className="card-edit-button">
                     {"Edit"}
                 </button>

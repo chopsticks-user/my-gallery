@@ -18,7 +18,9 @@
   --border-color: #505558;
   --custom-color: #1e1e24;
   --scrollbar-track-color: gray;
-  --menu-bg-color: #424446;
+  --header-stick-color: rgb(128, 122, 122);
+  --menu-bg-color: #506e96;
+  --hovered-menu-bg-color: #4288b6;
 
   --gray: rgb(228, 217, 217);
   /* --gray: rgb(151, 144, 144); */

@@ -5,17 +5,20 @@ import Gallery from "./components/Gallery";
 
 const themes = {
   dark: {
-    backgroundColor: "#1a1c1e",
+
+    backgroundColor: "linear-gradient(to right, #29323c, #485563, #29323c)",
+    bgColorFallback: "#29323c",
     textColor: "#fff",
     borderColor: "#1a2f2e",
     galleryCardBgColor: "#000",
     galleryCardInfoBgColor: "2e2e2e"
   },
   light: {
-    backgroundColor: "#fff",
+    backgroundColor: "linear-gradient(to right, #cfdef3, #e0eafc, #cfdef3)",
+    bgColorFallback: "#e0eafc",
     textColor: "rgb(37, 37, 37)",
-    borderColor: "#000",
-    galleryCardBgColor: "gray",
+    borderColor: "#8e9eab",
+    galleryCardBgColor: "#fff",
     galleryCardInfoBgColor: "gray"
   }
 };

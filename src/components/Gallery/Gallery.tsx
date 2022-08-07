@@ -12,7 +12,7 @@ const defaultGallery: any[] = [];
 const Gallery: React.FC<GalleryProps> = ({
     theme, guest
 }) => {
-    const [cardCount, setCardCount] = useState<number>(25);
+    const [cardCount, setCardCount] = useState<number>(4);
     const [cardList, setCardList] = useState<any[]>([]);
 
     const showCards = () => {
@@ -49,7 +49,11 @@ const Gallery: React.FC<GalleryProps> = ({
 
 
     return (
-        <div className="gallery-container">
+        <div className="gallery-container"
+            style={{
+                backgroundColor: theme.bgColorFallback,
+                background: theme.backgroundColor
+            }}>
             {cardList}
         </div>
     );
@@ -69,7 +73,11 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
 }) => {
     return (
         <div className="gallery-card-container" style={{ border: `1px solid ${borderColor}` }}>
-            <div className="card-thumbnail" style={{ backgroundColor: cardBgColor }}></div>
+            <div className="card-thumbnail"
+            style={{
+                /* backgroundColor:  cardBgColor */
+                backgroundColor: "black"
+            }}></div>
             <div className="card-info">
                 <a className="card-primary-link" href={primaryLink}
                     onClick={(e) => {

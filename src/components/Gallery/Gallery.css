@@ -80,6 +80,10 @@
         transition: opacity 800ms ease-in-out, transform 500ms ease-in-out;
     }
 
+    .gallery-card-container {
+        transition: transform 300ms ease-in-out;
+    }
+
     .gallery-card-container:hover {
         transform: scaleY(1.2) scaleX(1.1);
     }

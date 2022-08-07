@@ -22,7 +22,7 @@
   --menu-bg-color: #506e96;
   --hovered-menu-bg-color: #4288b6;
 
-  --gray: rgb(228, 217, 217);
+  --gray: #1f1d1d;
   /* --gray: rgb(151, 144, 144); */
   /* --menu-bg-color: #e0dddd; */
 
@@ -32,6 +32,10 @@
   -moz-user-select: none; Old versions of Firefox
   -ms-user-select: none; Internet Explorer/Edge
   user-select: none; */
+}
+
+* a, a :visited, a:hover, a:active {
+  color: inherit;
 }
 
 * button {

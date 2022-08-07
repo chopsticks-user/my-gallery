@@ -25,33 +25,46 @@
     display: flex;
     bottom: 0;
     opacity: 1;
-    background-color: red;
     height: 20px;
+    background: #7F7FD5;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.card-info>span {
+    width: 1px;
+    height: 60%;
+    align-self: center;
+    background-color: #555a77;
 }
 
 .card-edit-button {
-    background-color: green;
-    width: 40px;
+    min-width: 40px;
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 13px;
 }
 
 .card-primary-link {
     text-decoration: none;
     flex: auto;
     display: flex;
+    font-size: small;
     text-transform: uppercase;
     justify-content: center;
     align-items: center;
     padding-bottom: 3px;
-    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .card-source-link {
+    min-width: 40px;
     text-decoration: none;
-    background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,10 +78,23 @@
         gap: 0rem;
     }
 
+    .card-primary-link {
+        display: none;
+    }
+
     .card-edit-button {
         display: none;
     }
-    
+
+    .card-source-link {
+        display: none;
+    }
+
+    .card-info>span {
+        width: 0;
+        height: 0;
+    }
+
     .card-info {
         font-size: 0;
         display: flex;
@@ -88,6 +114,26 @@
         transform: scaleY(1.2) scaleX(1.1);
     }
 
+    .gallery-card-container:hover .card-primary-link {
+        text-decoration: none;
+        flex: auto;
+        display: flex;
+        font-size: small;
+        /* text-transform: uppercase; */
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 3px;
+        text-overflow: ellipsis;
+    }
+
+    .gallery-card-container:hover .card-info>span {
+        width: 1px;
+        height: 60%;
+        align-self: center;
+        background-color: #555a77;
+    }
+
+
     .gallery-card-container:hover>.card-info {
         font-size: 12px;
         opacity: 1;
@@ -95,16 +141,23 @@
         height: 20px;
         display: flex;
         flex-direction: row;
-        background-color: red;
         transform: translateY(0px);
         pointer-events: auto;
+    }
+
+    .gallery-card-container:hover .card-source-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-width: 40px;
+        height: 100%;
     }
 
     .gallery-card-container:hover .card-edit-button {
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 40px;
+        min-width: 40px;
         height: 100%;
     }
 }

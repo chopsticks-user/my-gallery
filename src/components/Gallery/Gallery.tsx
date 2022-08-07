@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { StringLiteral } from "typescript";
 import "./Gallery.css"
 
 type GalleryProps = {
@@ -19,22 +20,13 @@ const Gallery: React.FC<GalleryProps> = ({
         const newcardList: any[] = [];
         for (let i: number = 0; i < cardCount; i++) {
             newcardList.push(
-                // <div className="gallery-card-container" key={i} style={{ border: `1px solid ${theme.borderColor}` }}>
-                //     <div className="gallery-card" style={{ backgroundColor: theme.galleryCardBgColor }}></div>
-                //     <div className="gallery-info">
-                //         <div style={{ width: "100%", height: "100%" }}>
-                //             <a href="/">
-                //                 {"asjhdjadhjad </>"}
-                //             </a>
-                //         </div>
-                //     </div>
-                // </div>
                 <GalleryCard
                     key={i}
                     guest={guest}
                     cardBgColor={theme.galleryCardBgColor}
+                    cardInfoBgColor={theme.galleryCardInfoBgColor}
                     borderColor={theme.borderColor}
-                    cardName={`oooooooooooooooooooooooooooooo`} // maximum 30 characters
+                    cardName={`maximum 30 characters maximum 30`} // maximum 30 characters
                     primaryLink={`https://github.com`}
                     sourceLink={`https://github.com`}
                 />
@@ -62,6 +54,7 @@ const Gallery: React.FC<GalleryProps> = ({
 type GalleryCardProps = {
     guest: boolean;
     cardBgColor: string;
+    cardInfoBgColor: {pl: string, sl: string, ed: string};
     borderColor: string;
     cardName: string;
     primaryLink: string;
@@ -69,7 +62,7 @@ type GalleryCardProps = {
 }
 
 export const GalleryCard: React.FC<GalleryCardProps> = ({
-    guest, cardBgColor, borderColor, cardName, primaryLink, sourceLink
+    guest, cardBgColor, cardInfoBgColor, borderColor, cardName, primaryLink, sourceLink
 }) => {
     return (
         <div className="gallery-card-container" style={{ border: `1px solid ${borderColor}` }}>
@@ -80,22 +73,27 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
             }}></div>
             <div className="card-info">
                 <a className="card-primary-link" href={primaryLink}
+                    // style={{fontSize: "14px"}}
                     onClick={(e) => {
                         e.preventDefault();
                         window.open(primaryLink, "_blank");
                     }}
                 >{cardName}
                 </a>
+                <span></span>
                 <a className="card-source-link" href={sourceLink}
+                    
                     onClick={(e) => {
                         e.preventDefault();
                         window.open(primaryLink, "_blank");
                     }}
-                >{"</>"}
+                >{"  </>  "}
                 </a>
+                <span></span>
                 {
                     !guest ? <button
-                        className="card-edit-button">
+                        className="card-edit-button"
+                        style={{backgroundColor: "transparent"}}>
                         {"Edit"}
                     </button> : <></>
                 }

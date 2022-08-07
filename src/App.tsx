@@ -5,13 +5,13 @@ import Gallery from "./components/Gallery";
 
 const themes = {
   dark: {
-
-    backgroundColor: "linear-gradient(to right, #29323c, #485563, #29323c)",
-    bgColorFallback: "#29323c",
+    // backgroundColor: "linear-gradient(to right, #232526, #2e2e2e, #2e2e2e, #232526)",
+    backgroundColor: "#1f1d1d",
+    bgColorFallback: "#1f1d1d",
     textColor: "#fff",
     borderColor: "#1a2f2e",
     galleryCardBgColor: "#000",
-    galleryCardInfoBgColor: "2e2e2e"
+    galleryCardInfoBgColor: {pl: "#7F7FD5", sl: "#86A8E7", ed: "#91EAE4"}
   },
   light: {
     backgroundColor: "linear-gradient(to right, #cfdef3, #e0eafc, #cfdef3)",
@@ -19,7 +19,7 @@ const themes = {
     textColor: "rgb(37, 37, 37)",
     borderColor: "#8e9eab",
     galleryCardBgColor: "#fff",
-    galleryCardInfoBgColor: "gray"
+    galleryCardInfoBgColor: {pl: "#7F7FD5", sl: "#86A8E7", ed: "#91EAE4"}
   }
 };
 

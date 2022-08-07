@@ -24,8 +24,8 @@ const ToolBar: React.FC<ToolBarProps> = ({
                         className="change-theme-button"
                         style={{ color: textColor, fontSize: "30px" }}
                         onClick={() => addNewCard({
-                            displayedName: "maximum 30 characters maximum 30", // maximum 30 characters
-                            displayedThumbnail: "",
+                            name: "maximum 30 characters maximum 30", // maximum 30 characters
+                            thumbnail: "",
                             primaryLink: `https://github.com`,
                             sourceLink: `https://github.com`
                         })}

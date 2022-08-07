@@ -89,8 +89,7 @@
 /* homepage shortcut */
 .header-homepage-shortcut-container {
     height: 100%;
-    flex: 1;
-    min-width: 150px;
+    flex: 0 0 150px;
 }
 
 .header-homepage-link {

@@ -17,12 +17,8 @@ const Gallery: React.FC<GalleryProps> = ({
             return <GalleryCard
                 key={index}
                 guest={guest}
-                cardBgColor={theme.galleryCardBgColor}
                 borderColor={theme.borderColor}
-                cardName={value.displayedName}
-                thumbnail={value.displayedThumbnail}
-                primaryLink={value.primaryLink}
-                sourceLink={value.sourceLink}
+                displayInfo={value}
             />
         });
     return (
@@ -34,43 +30,16 @@ const Gallery: React.FC<GalleryProps> = ({
             {cardList}
         </div>
     );
-
 }
-
-// const showCards = () => {
-//     const newcardList: ReactElement<GalleryCardProps>[] = [];
-//     for (let i: number = 0; i < cardCount; i++) {
-//         newcardList.push(
-//             <GalleryCard
-//                 key={i}
-//                 guest={guest}
-//                 cardBgColor={theme.galleryCardBgColor}
-//                 borderColor={theme.borderColor}
-//                 cardName={collection[i].displayedName}
-//                 thumbnail={collection[i].displayedThumbnail}
-//                 primaryLink={collection[i].primaryLink}
-//                 sourceLink={collection[i].sourceLink}
-//             />
-//         );
-//     }
-// }
-
-// useEffect(() => {
-//     showCards();
-// }, [cardCount, theme]);
 
 type GalleryCardProps = {
     guest: boolean;
-    cardBgColor: string;
     borderColor: string;
-    cardName: string;
-    thumbnail: any;
-    primaryLink: string;
-    sourceLink: string;
+    displayInfo: GalleryCardInformation;
 }
 
 export const GalleryCard: React.FC<GalleryCardProps> = ({
-    guest, cardBgColor, borderColor, cardName, thumbnail, primaryLink, sourceLink
+    guest, borderColor, displayInfo
 }) => {
     return (
         <div className="gallery-card-container" style={{ border: `1px solid ${borderColor}` }}>
@@ -79,18 +48,18 @@ export const GalleryCard: React.FC<GalleryCardProps> = ({
                     backgroundColor: "black"
                 }}></div>
             <div className="card-info">
-                <a className="card-primary-link" href={primaryLink}
+                <a className="card-primary-link" href={displayInfo.primaryLink}
                     onClick={(e) => {
                         e.preventDefault();
-                        window.open(primaryLink, "_blank");
+                        window.open(displayInfo.primaryLink, "_blank");
                     }}
-                >{cardName}
+                >{displayInfo.name}
                 </a>
                 <span></span>
-                <a className="card-source-link" href={sourceLink}
+                <a className="card-source-link" href={displayInfo.sourceLink}
                     onClick={(e) => {
                         e.preventDefault();
-                        window.open(primaryLink, "_blank");
+                        window.open(displayInfo.primaryLink, "_blank");
                     }}
                 >{"</>"}
                 </a>

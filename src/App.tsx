@@ -10,7 +10,6 @@ const themes = {
     bgColorFallback: "#1f1d1d",
     textColor: "#fff",
     borderColor: "#1a2f2e",
-    galleryCardBgColor: "#000",
   },
   light: {
     // backgroundColor: "linear-gradient(to right, #cfdef3, #e0eafc, #cfdef3)",
@@ -19,20 +18,19 @@ const themes = {
     bgColorFallback: "#E9E4F0",
     textColor: "rgb(37, 37, 37)",
     borderColor: "#8e9eab",
-    galleryCardBgColor: "#fff",
   }
 };
 
 export type GalleryCardInformation = {
-  displayedName: string;
-  displayedThumbnail: any;
+  name: string;
+  thumbnail: any;
   primaryLink: string;
   sourceLink: string;
 }
 
 type userBasicInfo = {
   isAdministrator: boolean;
-  displayedName: string;
+  name: string;
   gallery: GalleryCardInformation[];
 }
 
@@ -42,38 +40,38 @@ type userSettingInfo = {
 }
 
 type User = {
-  basicInfo: userBasicInfo;
-  settingInfo: userSettingInfo;
+  basic: userBasicInfo;
+  settings: userSettingInfo;
 }
 
 const defaultUserInfo: User = {
-  basicInfo: {
+  basic: {
     isAdministrator: false,
-    displayedName: "",
+    name: "",
     gallery: []
   },
-  settingInfo: {
+  settings: {
     darkTheme: true,
     backgroundAnimation: 0
   }
 }
 
 const userInfo: User = {
-  basicInfo: {
+  basic: {
     isAdministrator: true,
-    displayedName: "Frost",
+    name: "Frost",
     gallery: []
   },
-  settingInfo: {
+  settings: {
     darkTheme: true,
     backgroundAnimation: 1
   }
 }
 
 // for (let i = 0; i < 10; i++) {
-//   userInfo.basicInfo.gallery.push({
-//     displayedName: "maximum 30 characters maximum 30", // maximum 30 characters
-//     displayedThumbnail: "",
+//   userInfo.basic.gallery.push({
+//     name: "maximum 30 characters maximum 30", // maximum 30 characters
+//     thumbnail: "",
 //     primaryLink: `https://github.com`,
 //     sourceLink: `https://github.com`
 //   });
@@ -82,37 +80,37 @@ const userInfo: User = {
 const App = () => {
   const [guest, setGuest] = useState<boolean>(false);
 
-  const [displayedName, setDisplayedName] = useState<string>(
-    guest ? defaultUserInfo.basicInfo.displayedName : userInfo.basicInfo.displayedName
+  const [name, setname] = useState<string>(
+    guest ? defaultUserInfo.basic.name : userInfo.basic.name
   );
   const [backgroundAnimation, setBackgroundAnimation] = useState<number>(
-    guest ? defaultUserInfo.settingInfo.backgroundAnimation : userInfo.settingInfo.backgroundAnimation
+    guest ? defaultUserInfo.settings.backgroundAnimation : userInfo.settings.backgroundAnimation
   );
   const [darkTheme, setDarkTheme] = useState<boolean>(
-    guest ? defaultUserInfo.settingInfo.darkTheme : userInfo.settingInfo.darkTheme
+    guest ? defaultUserInfo.settings.darkTheme : userInfo.settings.darkTheme
   );
   const [theme, setTheme] = useState<any>(darkTheme ? themes.dark : themes.light);
   const [displayedGallery, setDisplayedGallery] = useState<GalleryCardInformation[]>(
-    guest ? defaultUserInfo.basicInfo.gallery : userInfo.basicInfo.gallery
+    guest ? defaultUserInfo.basic.gallery : userInfo.basic.gallery
   );
 
   useEffect(() => {
     setTheme(darkTheme ? themes.dark : themes.light);
     if (!guest) {
-      userInfo.settingInfo.darkTheme = darkTheme;
+      userInfo.settings.darkTheme = darkTheme;
     }
-    if (userInfo.basicInfo.isAdministrator) {
-      defaultUserInfo.settingInfo.darkTheme = darkTheme;
+    if (userInfo.basic.isAdministrator) {
+      defaultUserInfo.settings.darkTheme = darkTheme;
     }
     console.log(userInfo);
     console.log(defaultUserInfo);
   }, [darkTheme]);
 
   useEffect(() => {
-    if (userInfo.basicInfo.isAdministrator) {
-      defaultUserInfo.basicInfo.gallery = displayedGallery;
+    if (userInfo.basic.isAdministrator) {
+      defaultUserInfo.basic.gallery = displayedGallery;
     }
-    userInfo.basicInfo.gallery = displayedGallery;
+    userInfo.basic.gallery = displayedGallery;
   }, [displayedGallery]);
 
   const toggleTheme = (): void => {

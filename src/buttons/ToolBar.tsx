@@ -3,10 +3,11 @@ import React from 'react'
 type ToolBarProps = {
     textColor: string;
     toolBarMenuIcon: string;
+    addNewCard: any;
 }
 
 const ToolBar: React.FC<ToolBarProps> = ({
-    textColor, toolBarMenuIcon
+    textColor, toolBarMenuIcon, addNewCard
 }) => {
     const addNewCardIcon = "+";
     return (
@@ -22,6 +23,12 @@ const ToolBar: React.FC<ToolBarProps> = ({
                     <button
                         className="change-theme-button"
                         style={{ color: textColor, fontSize: "30px" }}
+                        onClick={() => addNewCard({
+                            displayedName: "maximum 30 characters maximum 30", // maximum 30 characters
+                            displayedThumbnail: "",
+                            primaryLink: `https://github.com`,
+                            sourceLink: `https://github.com`
+                        })}
                     >{addNewCardIcon}
                     </button>
                 </li>

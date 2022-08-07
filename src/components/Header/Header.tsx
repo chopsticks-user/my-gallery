@@ -14,10 +14,11 @@ type HeaderProps = {
   guest: boolean;
   setGuest: Dispatch<SetStateAction<boolean>>;
   setBackgroundAnimation: Dispatch<SetStateAction<number>>;
+  addNewCard: any;
 }
 
 const Header: React.FC<HeaderProps> = ({
-  theme, darkTheme, toggleTheme, guest, setGuest, setBackgroundAnimation
+  theme, darkTheme, toggleTheme, guest, setGuest, setBackgroundAnimation, addNewCard
 }) => {
   const textColor = "#fff";
   const settingsMenuIcon = "⚙";
@@ -44,6 +45,7 @@ const Header: React.FC<HeaderProps> = ({
         <span></span>
         {
           !guest ? <ToolBar
+            addNewCard={addNewCard}
             textColor={textColor}
             toolBarMenuIcon={toolBarMenuIcon}
           /> : <></>

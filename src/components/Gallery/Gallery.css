@@ -55,7 +55,6 @@
     flex: auto;
     display: flex;
     font-size: small;
-    text-transform: uppercase;
     justify-content: center;
     align-items: center;
     padding-bottom: 3px;
@@ -74,7 +73,7 @@
 @media screen and (min-width: 500px) {
     .gallery-container {
         padding: var(--gallery-container-padding);
-        grid-template-columns: repeat(auto-fit, minmax(calc(500px - 2 * var(--gallery-container-padding)), 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(calc(500px - 2 * var(--gallery-container-padding)), .25fr));
         gap: 0rem;
     }
 
@@ -119,7 +118,6 @@
         flex: auto;
         display: flex;
         font-size: small;
-        /* text-transform: uppercase; */
         justify-content: center;
         align-items: center;
         padding-bottom: 3px;

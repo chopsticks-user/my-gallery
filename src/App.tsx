@@ -11,19 +11,19 @@ const themes = {
     textColor: "#fff",
     borderColor: "#1a2f2e",
     galleryCardBgColor: "#000",
-    galleryCardInfoBgColor: {pl: "#7F7FD5", sl: "#86A8E7", ed: "#91EAE4"}
   },
   light: {
-    backgroundColor: "linear-gradient(to right, #cfdef3, #e0eafc, #cfdef3)",
-    bgColorFallback: "#e0eafc",
+    // backgroundColor: "linear-gradient(to right, #cfdef3, #e0eafc, #cfdef3)",
+    // bgColorFallback: "#e0eafc",
+    backgroundColor: "#E9E4F0",
+    bgColorFallback: "#E9E4F0",
     textColor: "rgb(37, 37, 37)",
     borderColor: "#8e9eab",
     galleryCardBgColor: "#fff",
-    galleryCardInfoBgColor: {pl: "#7F7FD5", sl: "#86A8E7", ed: "#91EAE4"}
   }
 };
 
-type GalleryCardInformation = {
+export type GalleryCardInformation = {
   displayedName: string;
   displayedThumbnail: any;
   primaryLink: string;
@@ -50,12 +50,7 @@ const defaultUserInfo: User = {
   basicInfo: {
     isAdministrator: false,
     displayedName: "",
-    gallery: [{
-      displayedName: "",
-      displayedThumbnail: "",
-      primaryLink: "",
-      sourceLink: ""
-    }]
+    gallery: []
   },
   settingInfo: {
     darkTheme: true,
@@ -63,22 +58,26 @@ const defaultUserInfo: User = {
   }
 }
 
-const userInfo = {
+const userInfo: User = {
   basicInfo: {
     isAdministrator: true,
     displayedName: "Frost",
-    gallery: [{
-      displayedName: "",
-      displayedThumbnail: "",
-      primaryLink: "",
-      sourceLink: ""
-    }]
+    gallery: []
   },
   settingInfo: {
     darkTheme: true,
     backgroundAnimation: 1
   }
 }
+
+// for (let i = 0; i < 10; i++) {
+//   userInfo.basicInfo.gallery.push({
+//     displayedName: "maximum 30 characters maximum 30", // maximum 30 characters
+//     displayedThumbnail: "",
+//     primaryLink: `https://github.com`,
+//     sourceLink: `https://github.com`
+//   });
+// }
 
 const App = () => {
   const [guest, setGuest] = useState<boolean>(false);
@@ -106,6 +105,7 @@ const App = () => {
       defaultUserInfo.settingInfo.darkTheme = darkTheme;
     }
     console.log(userInfo);
+    console.log(defaultUserInfo);
   }, [darkTheme]);
 
   useEffect(() => {
@@ -119,8 +119,8 @@ const App = () => {
     setDarkTheme(darkTheme => !darkTheme);
   }
 
-  const editGallery = (newDisplayedGallery: any): void => {
-    setDisplayedGallery(newDisplayedGallery);
+  const addNewCard = (newCard: GalleryCardInformation): void => {
+    setDisplayedGallery(prev => [...prev, newCard]);
   }
 
   const editCard = (modifiedCard: any): void => {
@@ -137,10 +137,12 @@ const App = () => {
           guest={guest}
           setGuest={setGuest}
           setBackgroundAnimation={setBackgroundAnimation}
+          addNewCard={addNewCard}
         />
         <Gallery
           theme={theme}
           guest={guest}
+          galleryCardDisplayInfoList={displayedGallery}
         />
       </div>
       <LoadingPage />
